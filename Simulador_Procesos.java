@@ -339,6 +339,13 @@ public class Simulador_Procesos {
         int modoEjecucion = solicitarEnteroEnRango("Seleccione el modo de ejecución: ", 1, 2);
         
         if (modoEjecucion == 1) {
+            // Mostrar estado inicial en modo manual
+            System.out.println("\n=== Estado inicial de procesos ===");
+            gestorPlanificacionGlobal.visualizarEstadoProcesos();
+            System.out.println("\n=== Estado inicial de recursos ===");
+            verificarEstadoRecursos();
+            System.out.println("\n=== Estado inicial de colas ===");
+            gestorPlanificacionGlobal.visualizarColasPlanificacion();
             desplegarMenuPrincipal();
         } else {
             iniciarModoAutomatico();
@@ -369,8 +376,8 @@ public class Simulador_Procesos {
             switch (opcion) {
                 case 1: registrarNuevoProceso(); break;
                 case 2: gestorPlanificacionGlobal.visualizarEstadoProcesos(); break;
-                case 3: verificarEstadoRecursos(); break;
-                case 4: gestorPlanificacionGlobal.visualizarColasPlanificacion(); break;
+                case 3: gestorPlanificacionGlobal.visualizarColasPlanificacion(); break; // Corregido
+                case 4: verificarEstadoRecursos(); break; // Corregido
                 case 5: procesarSiguienteTarea(); break;
                 case 6: alternarEstadoProceso(); break;
                 case 7: finalizarProcesoSeleccionado(); break;
